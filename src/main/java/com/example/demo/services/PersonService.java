@@ -10,4 +10,6 @@ public interface PersonService {
     List<Person> findAll();
 
     Person save(Person person);
+
+    void deleteById(int id);
 }

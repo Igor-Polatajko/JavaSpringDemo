@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class PersonServiceImpl implements PersonService {
 
-    private PersonRepository personRepository;
+    private final PersonRepository personRepository;
 
     public PersonServiceImpl(PersonRepository personRepository) {
         this.personRepository = personRepository;
@@ -29,5 +29,10 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person save(Person person) {
         return personRepository.save(person);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        personRepository.deleteById(id);
     }
 }
