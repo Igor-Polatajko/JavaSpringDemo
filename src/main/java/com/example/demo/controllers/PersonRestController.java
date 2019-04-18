@@ -3,8 +3,6 @@ package com.example.demo.controllers;
 
 import com.example.demo.model.Person;
 import com.example.demo.services.PersonService;
-import com.sun.javafx.collections.NonIterableChange;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,15 +22,30 @@ public class PersonRestController {
         return personService.findAll();
     }
 
-    @RequestMapping("find/{id}")
+    @RequestMapping("find/id/{id}")
     public Person findById(@PathVariable("id") int id) {
         return personService.findById(id);
+    }
+
+    @RequestMapping("find/name/{name}")
+    public List<Person> findByName(@PathVariable("name") String name) {
+        return personService.findByName(name);
+    }
+
+    @RequestMapping("find/number/{phoneNumber}")
+    public List<Person> findByPhoneNumber(@PathVariable("phoneNumber") String phoneNumber) {
+        return personService.findByPhoneNumber(phoneNumber);
+    }
+
+    @RequestMapping("find/age/{age}")
+    public List<Person> findByAge(@PathVariable("age") int age) {
+        return personService.findByAge(age);
     }
 
     @RequestMapping("delete/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteById(@PathVariable("id") int id) {
-         personService.deleteById(id);
+        personService.deleteById(id);
     }
 
     @PostMapping("add")

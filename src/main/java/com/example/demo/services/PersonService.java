@@ -6,6 +6,11 @@ import java.util.List;
 
 public interface PersonService {
     Person findById(int id);
+    List<Person> findByName(String name);
+
+    List<Person> findByPhoneNumber(String phoneNumber);
+
+    List<Person> findByAge(int age);
 
     List<Person> findAll();
 
