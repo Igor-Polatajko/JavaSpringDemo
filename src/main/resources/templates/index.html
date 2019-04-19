@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+
 </head>
 <body>
 
-<h1>Index page</h1>
-<h2>Text should be there: <b th:text="${text}"></b>.</h2>
+<h1>Persons</h1>
+
+<h3><a href="/create">Create new contact</a></h3>
+
+<ul id="personsList">
+    <li  th:each="person : ${persons}" class="item">
+        <b th:text="${person.name}"></b> (age: <tag th:text="${person.age}"></tag>) - <i th:text="${person.phoneNumber} != null ? ${person.phoneNumber} : 'No number available!'"></i>
+    </li>
+</ul>
 
 </body>
 </html>
