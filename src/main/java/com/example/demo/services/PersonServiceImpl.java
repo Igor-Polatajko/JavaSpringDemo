@@ -48,6 +48,22 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public void deleteById(int id) {
-        personRepository.deleteById(id);
+        if (this.existsById(id)) {
+            personRepository.deleteById(id);
+        }
+        throw new RuntimeException("Person not found");
+    }
+
+    @Override
+    public boolean existsById(Integer id) {
+        return personRepository.existsById(id);
+    }
+
+    @Override
+    public Person updateById(int id, Person person) {
+        if (this.existsById(id)) {
+            return personRepository.updateById(id, person);
+        }
+        throw new RuntimeException("Person not found");
     }
 }
