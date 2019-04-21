@@ -3,6 +3,7 @@ package com.example.demo.services;
 
 import com.example.demo.model.Person;
 import com.example.demo.repositories.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +11,8 @@ import java.util.List;
 @Service
 public class PersonServiceImpl implements PersonService {
 
-    private final PersonRepository personRepository;
-
-    public PersonServiceImpl(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
+    @Autowired
+    private PersonRepository personRepository;
 
     @Override
     public Person findById(int id) {
