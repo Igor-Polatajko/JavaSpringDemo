@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#submit').click(  function () {
+        $('#add_contact_submit').click(  function () {
 
             var sendInfo = {
                 'name' : $("#name").val(),
@@ -47,7 +47,7 @@
     <p><input id="name" type="text" placeholder="Name" required></p>
     <p><input id="phoneNumber" type="tel" placeholder="Phone number" required></p>
     <p><input id="age" type="number" placeholder="Age" required></p>
-    <p><input id="submit" type="submit" value="Submit"></p>
+    <p><input id="add_contact_submit" type="submit" value="Submit"></p>
 </form>
 
 <h3 id="result"></h3>
